@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useIncidentStore, type ResponseAction } from '@/lib/store';
+import { LedgerPanel } from '@/components/ledger-panel';
 
 const formSchema = z.object({ title: z.string().min(4, '请填写至少4个字的子事件'), owner: z.string().min(2, '请填写负责组') });
 const roleNames = { analyst: '分析员', responder: '响应负责人', legal: '法务/公关', viewer: '访客' };
@@ -61,5 +62,6 @@ export default function Page() {
         <Card className="timeline-card"><CardHeader><div><h2>{t('timeline')}</h2><p className="muted">每 20 秒接收一次模拟监测事件</p></div><Radio color="#ef4444" /></CardHeader><CardContent><div className="timeline">{incident.timeline.map((event) => <article key={event.id}><i /><div><div className="timeline-meta"><strong>{event.actor}</strong><span>{formatDistanceToNow(new Date(event.at), { addSuffix: true, locale: zhCN })}</span></div><p>{event.sensitive && !canSeeSensitive ? '敏感处置记录已隐藏' : event.text}</p></div></article>)}</div></CardContent></Card>
       </div>
     </section>
+    <section className="ledger-section"><LedgerPanel /></section>
   </main>;
 }
