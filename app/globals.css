@@ -14,3 +14,42 @@ button, input, select { font: inherit; }
 form label { display: block; margin-bottom: 4px; font-weight: 650; }.input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 9px; margin-bottom: 4px; }
 .timeline { display: flex; flex-direction: column; }.timeline article { display: grid; grid-template-columns: 16px 1fr; gap: 10px; padding-bottom: 18px; position: relative; }.timeline article i { width: 10px; height: 10px; margin-top: 4px; border-radius: 50%; background: #e11d48; box-shadow: 0 0 0 4px #fee2e2; }.timeline article:not(:last-child)::after { content: ""; position: absolute; left: 4px; top: 16px; bottom: 0; width: 1px; background: #cbd5e1; }.timeline-meta { display: flex; justify-content: space-between; color: #64748b; font-size: 12px; }.timeline p { margin: 6px 0 0; }
 @media (max-width: 900px) { .metrics { grid-template-columns: repeat(2, 1fr); }.grid { grid-template-columns: 1fr; }.topbar { flex-direction: column; }.action-row { flex-direction: column; } }
+
+/* 核验台账 */
+.ledger-card { margin-top: 20px; }
+.ledger-card h2 { display: flex; align-items: center; gap: 8px; }
+.ledger-head-actions { display: flex; align-items: center; gap: 8px; }
+.ledger-dot { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 999px; font-size: 12px; font-weight: 650; }
+.ledger-dot.on { background: #dcfce7; color: #166534; }
+.ledger-dot.off { background: #fee2e2; color: #991b1b; }
+.ledger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.ledger-col h3 { font-size: 14px; margin: 16px 0 8px; }
+.ledger-col h3:first-child { margin-top: 0; }
+.ledger-select { border: 1px solid #cbd5e1; border-radius: 8px; padding: 5px 8px; background: white; }
+.ledger-roles, .ledger-segments { display: flex; flex-direction: column; gap: 8px; }
+.ledger-role, .ledger-segment { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid #e2e8f0; background: #f8fafc; }
+.ledger-role.ok, .ledger-segment.ok { border-color: #bbf7d0; background: #f0fdf4; }
+.ledger-role.missing, .ledger-segment.missing { border-color: #fecaca; background: #fef2f2; }
+.ledger-verdict { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; }
+.ledger-verdict.ok { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.ledger-verdict.pending { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.ledger-verdict .muted { margin-top: 4px; }
+.ledger-decision-actions { display: flex; gap: 8px; margin: 10px 0 4px; }
+.ledger-scope { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px dashed #cbd5e1; border-radius: 12px; }
+.ledger-scope label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
+.ledger-ops { display: flex; flex-direction: column; gap: 8px; }
+.ledger-warn { color: #b91c1c; display: flex; align-items: center; gap: 5px; }
+.ledger-queue { margin: 0; padding-left: 18px; font-size: 13px; color: #991b1b; }
+.ledger-exceptions { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+.ledger-exceptions h4 { margin: 0 0 6px; font-size: 13px; }
+.ledger-tag { display: inline-block; margin: 0 6px 6px 0; padding: 4px 9px; border-radius: 999px; font-size: 12px; }
+.ledger-tag.conflict { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.ledger-tag.voided { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; text-decoration: line-through; }
+.ledger-book { margin-top: 16px; overflow-x: auto; border-top: 1px solid #e2e8f0; padding-top: 12px; }
+.ledger-book h4 { margin: 0 0 8px; }
+.ledger-book table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.ledger-book th, .ledger-book td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+.ledger-book td:nth-child(5) { white-space: normal; min-width: 220px; }
+.ledger-book tr.row-voided { color: #b91c1c; background: #fef2f2; }
+.ledger-book tr.row-conflict { color: #92400e; background: #fffbeb; }
+@media (max-width: 900px) { .ledger-grid { grid-template-columns: 1fr; }.ledger-head-actions { flex-wrap: wrap; } }

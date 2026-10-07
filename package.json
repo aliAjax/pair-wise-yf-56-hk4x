@@ -6,7 +6,8 @@
     "dev": "next dev -p 62021",
     "build": "next build",
     "start": "next start -p 62021",
-    "preview": "next start -p 62021"
+    "preview": "next start -p 62021",
+    "test:ledger": "tsc -p tsconfig.ledger-test.json && node --test .test-build/lib/ledger/ledger.test.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
